@@ -622,6 +622,7 @@ function countForProvince(provinceCode, ...postalCodes) {
       }
       break;
   }
+
   return count;
 }
 
@@ -764,7 +765,59 @@ function generateLicenseLink(licenseCode, targetBlank) {
  ******************************************************************************/
 
 function pureBool(value) {
-  // Replace this comment with your code...
+  let bool;
+
+  //  pure boolean values work as expected
+  if (typeof value === 'boolean') {
+    if (value === true) {
+      bool = true;
+    } else {
+      bool = false;
+    }
+  }
+
+  //  various forms of Yes should return true
+  //  various forms of No should return false
+  else if (typeof value === 'string') {
+    value = value.toUpperCase();
+    switch (true) {
+      case value === 'YES' ||
+        value === 'OUI' ||
+        value === 'Y' ||
+        value === 'O' ||
+        value === 'TRUE' ||
+        value === 'T' ||
+        value === 'VRAI' ||
+        value === 'V':
+        bool = true;
+        break;
+      case value === 'NO' ||
+        value === 'N' ||
+        value === 'NON' ||
+        value === 'FALSE' ||
+        value === 'F' ||
+        value === 'FAUX':
+        bool = false;
+        break;
+    }
+  }
+
+  //  positive numbers should be true
+  //  zero and negative numbers should be false
+  else if (typeof value === 'number') {
+    if (value > 0) {
+      bool = true;
+    } else {
+      bool = false;
+    }
+  }
+
+  //  various non-values should throw
+  if (value === undefined || value === null || value === '') {
+    throw 'invalid value';
+  }
+
+  return bool;
 }
 
 /*******************************************************************************
@@ -781,16 +834,73 @@ function pureBool(value) {
  * throws on invalid data.
  ******************************************************************************/
 
-function every() {
-  // Replace this comment with your code...
+function every(...values) {
+  let value;
+  let bool;
+  let counter = 0;
+
+  // test each argument as true or false
+  for (let i = 0; i < values.length; i++) {
+    value = pureBool(values[i]);
+    if (value === true) {
+      counter++;
+    }
+  }
+
+  // return true if arguments are all true
+  if (counter === values.length) {
+    bool = true;
+  } else {
+    bool = false;
+  }
+
+  return bool;
 }
 
-function any() {
-  // Replace this comment with your code...
+function any(...values) {
+  let value;
+  let bool;
+  let counter = 0;
+
+  // test each argument as true or false
+  for (let i = 0; i < values.length; i++) {
+    value = pureBool(values[i]);
+    if (value === true) {
+      counter++;
+    }
+  }
+
+  // return true if arguments are mostly true
+  if (counter >= 1) {
+    bool = true;
+  } else {
+    bool = false;
+  }
+
+  return bool;
 }
 
-function none() {
-  // Replace this comment with your code...
+function none(...values) {
+  let value;
+  let bool;
+  let counter = 0;
+
+  // test each argument as true or false
+  for (let i = 0; i < values.length; i++) {
+    value = pureBool(values[i]);
+    if (value === false) {
+      counter++;
+    }
+  }
+
+  // return true if arguments are all false
+  if (counter === values.length) {
+    bool = true;
+  } else {
+    bool = false;
+  }
+
+  return bool;
 }
 
 /*******************************************************************************
