@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Load icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Load Bootstrap's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <strong>CONTACT ME</strong>
+        <i
+          class="fa fa-american-sign-language-interpreting"
+          style="font-size: 48px"
+        ></i>
+      </h1>
+
+      <!-- Submit the form to /submit-form using a POST request -->
+      <form
+        id="appointment-form"
+        action="https://httpbin.org/post"
+        method="post"
+      >
+        <div class="row">
+          <div class="form-group col">
+            <label for="fname"
+              ><span class="text-danger">*</span> First Name</label
+            >
+            <input
+              class="form-control"
+              id="fname"
+              name="fname"
+              autocomplete="given-name"
+              type="text"
+              autofocus
+              tabindex="1"
+              required
+            />
+          </div>
+
+          <div class="form-group col">
+            <label for="lname"
+              ><span class="text-danger">*</span> Last Name</label
+            >
+            <input
+              class="form-control"
+              id="lname"
+              name="lname"
+              autocomplete="family-name"
+              type="text"
+              tabindex="2"
+              required
+            />
+          </div>
+
+          <div class="form-group col">
+            <label for="company-name"
+              ><span class="text-danger">*</span> Company Name</label
+            >
+            <input
+              class="form-control"
+              id="company-name"
+              name="company-name"
+              type="text"
+              tabindex="3"
+              required
+            />
+            <div class="invalid-feedback">Enter an 8 or 9 digit Student ID</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col">
+            <label for="email"
+              ><span class="text-danger">*</span> Email Address</label
+            >
+            <input
+              id="email"
+              class="form-control"
+              name="email"
+              autocomplete="email"
+              type="email"
+              tabindex="4"
+              required
+            />
+          </div>
+
+          <div class="form-group col">
+            <label for="phone">Phone Number</label>
+            <input
+              id="phone"
+              class="form-control"
+              name="phone"
+              autocomplete="tel"
+              type="tel"
+              tabindex="5"
+            />
+            <small class="form-text text-muted">Optional</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col">
+            <label for="address"
+              ><span class="text-danger">*</span> Company Address</label
+            >
+            <input
+              id="address"
+              class="form-control"
+              name="address"
+              autocomplete="street-address"
+              type="text"
+              tabindex="6"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col">
+            <label for="city"><span class="text-danger">*</span> City</label>
+            <input
+              id="city"
+              class="form-control"
+              name="city"
+              autocomplete="address-level2"
+              type="text"
+              tabindex="7"
+              required
+            />
+          </div>
+
+          <div class="form-group col">
+            <label for="province"
+              ><span class="text-danger">*</span> Province</label
+            >
+            <select
+              id="province"
+              class="form-control"
+              name="province"
+              autocomplete="address-level1"
+              tabindex="8"
+            >
+              <option>Alberta</option>
+              <option>British Columbia</option>
+              <option>Manitoba</option>
+              <option>New Brunswick</option>
+              <option>Newfoundland and Labrador</option>
+              <option>Northwest Territories</option>
+              <option>Nova Scotia</option>
+              <option>Nunavut</option>
+              <!-- Make Ontario the default selected option -->
+              <option selected>Ontario</option>
+              <option>Prince Edward Island</option>
+              <option>Quebec</option>
+              <option>Saskatchewan</option>
+              <option>Yukon</option>
+            </select>
+          </div>
+
+          <div class="form-group col">
+            <label for="postal-code"
+              ><span class="text-danger">*</span> Postal Code</label
+            >
+            <input
+              id="postal-code"
+              class="form-control"
+              name="post-code"
+              autocomplete="postal-code"
+              type="text"
+              tabindex="9"
+              placeholder="M5W 1E6"
+              pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"
+              required
+            />
+            <div class="invalid-feedback">
+              Enter a valid Canadian Postal Code
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col">
+            <label for="url">Website URL</label>
+            <input
+              id="url"
+              class="form-control"
+              name="url"
+              autocomplete="url"
+              type="url"
+              tabindex="10"
+            />
+            <small class="form-text text-muted">Optional</small>
+            <div class="invalid-feedback">
+              Enter a valid Seneca URL (using myseneca.ca or senecacollege.ca)
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col">
+            <label for="feedback-file"
+              ><span class="text-danger">*</span> Message</label
+            >
+            <textarea
+              id="description"
+              class="form-control"
+              name="description"
+              rows="10"
+              tabindex="11"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row-reverse mt-2">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            name="submit"
+            value="SEND"
+            tabindex="15"
+          />
+          <input
+            class="btn btn-secondary mr-3"
+            type="reset"
+            name="reset"
+            value="RESET"
+            tabindex="16"
+          />
+        </div>
+      </form>
+    </div>
+
+    <!-- Include the necessary Bootstrap JavaScript files -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Include our form validation script -->
+    <script>
+      function validateUrl(url) {
+        // We allow leaving the URL blank, so if this is the empty string, return true
+        if (!url) {
+          return true;
+        }
+        // Otherwise, try to parse the url and get its domain.  Make sure it matches
+        // what we expect for a Seneca domain (myseneca.ca, senecacollege.ca). See:
+        // https://developer.mozilla.org/en-US/docs/Web/API/URL
+        try {
+          let parsedUrl = new URL(url);
+          let hostname = parsedUrl.hostname;
+
+          // Check for our domains
+          switch (hostname) {
+            case "myseneca.ca":
+            case "senecacollege.ca":
+              return true;
+            default:
+              console.log("URL is not an expected Seneca domain", url);
+              return false;
+          }
+        } catch (err) {
+          // Unable to parse this URL, invalid
+          console.log("Unable to parse URL", url);
+          return false;
+        }
+      }
+
+      window.onload = function () {
+        let form = document.querySelector("#appointment-form");
+
+        form.onsubmit = function (event) {
+          // First, check if the form is valid (e.g., not missing required fields).
+          // If it is missing anything, stop the submission now.
+          if (!form.checkValidity()) {
+            // Update the CSS to indicate any invalid fields
+            form.classList.add("was-validated");
+
+            // Stop the form from being submitted until things are filled out
+            event.preventDefault();
+            return false;
+          }
+
+          // Second, do a custom check on the URL, looking for Seneca domains
+          if (!validateUrl(form.url.value)) {
+            // Set the URL as invalid, and give a message for the reason
+            form.url.setCustomValidity("Please enter a Seneca URL");
+
+            // Listen for the user to make changes and keep re-validating
+            form.url.oninput = function (event) {
+              if (!validateUrl(form.url.value)) {
+                form.url.setCustomValidity("Please enter a Seneca URL");
+              } else {
+                // Clear the url so it is valid, and stop listening for updates
+                form.url.setCustomValidity("");
+                form.url.oninput = null;
+              }
+            };
+
+            // Stop the form from being submitted until the URL is fixed
+            event.preventDefault();
+            return false;
+          }
+
+          // Everything looks good, allow this form to be submitted
+          return true;
+        };
+      };
+    </script>
+  </body>
+</html>
