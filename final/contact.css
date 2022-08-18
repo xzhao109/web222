@@ -4,6 +4,10 @@ body {
 }
 
 /* Header Title */
+.fa {
+  margin-left: 15px;
+}
+
 .container h1 {
   text-align: center;
   font-size: 45px;
