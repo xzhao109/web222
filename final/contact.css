@@ -1,0 +1,31 @@
+body {
+  font-family: "Helvetica", Sans-Serif;
+  background-color: #ffd101;
+}
+
+/* Header Title */
+.container h1 {
+  text-align: center;
+  font-size: 45px;
+  margin: 40px 0px;
+}
+
+/* Form */
+#appointment-form {
+  background-color: #ffffff;
+  max-width: 900px;
+  flex-direction: column;
+  padding: 40px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Send Button */
+.btn {
+  background-color: #ffd101;
+  color: #000;
+  border: 0px;
+}
